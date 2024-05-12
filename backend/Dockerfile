@@ -18,3 +18,5 @@ RUN bash -c "if [ $INSTALL_DEV == 'true' ] ; then poetry install --with dev --no
 
 ENV PYTHONPATH=/code
 EXPOSE 9090
+
+CMD sh -c 'alembic upgrade head && python app/document_ingestion.py  && uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 9090'
