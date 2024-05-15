@@ -27,6 +27,8 @@ ENV NEXTAUTH_URL=${NEXTAUTH_URL}
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
+ENV NEXT_SHARP_PATH=/app/node_modules/sharp
+
 RUN yarn run prisma:generate
 RUN yarn run build
 
